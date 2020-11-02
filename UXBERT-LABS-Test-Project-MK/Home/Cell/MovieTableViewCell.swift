@@ -21,9 +21,9 @@ final class MovieTableViewCell: UITableViewCell {
     }
     
     /// Configure Cell with Model Class Data
-    func configureCell(with movie: Movie) {
-        titleLabel.text = movie.title
-        if let url = URL(string: movie.poster) {
+    func configureCell(title: String, imageUrl: String) {
+        titleLabel.text = title
+        if let url = URL(string: imageUrl) {
             posterImageView.sd_setImage(with: url)
         }
     }

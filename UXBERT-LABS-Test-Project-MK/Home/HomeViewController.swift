@@ -26,7 +26,7 @@ final class HomeViewController: UIViewController {
         movieViewModel = MoviesViewModel(delegate: self)
         movieViewModel?.getMoviesData(searchTerm: searchTerm, page: movieViewModel?.page ?? 1)
         dataSource = TableViewDataSource(items: movieViewModel?.getMovies() ?? [], configureCell: { (cell, vm) in
-            cell.configureCell(with: vm)
+            cell.configureCell(title: vm.title, imageUrl: vm.poster)
         })
         setupTableView()
         setupSearchController()
@@ -47,12 +47,9 @@ final class HomeViewController: UIViewController {
         definesPresentationContext = true
     }
     
-    @IBAction private func searchButtonTapped(_ sender: UIBarButtonItem) {
-        print("tapping...")
-    }
-    
     @IBAction private func favouriteButtonTapped(_ sender: UIBarButtonItem) {
-        print("tapping...")
+        let vc: FavouriteMoviesViewController = UIStoryboard(storyboard: .main).instantiateViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -65,15 +62,18 @@ extension HomeViewController: MoviesViewModelDelegate {
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 300
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        return view.frame.height / 1.5
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vm = movieViewModel?.getMovie(index: indexPath.row)
+        let vc: MovieDetailsViewController = UIStoryboard(storyboard: .main).instantiateViewController()
+        vc.movieId = vm?.id ?? ""
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

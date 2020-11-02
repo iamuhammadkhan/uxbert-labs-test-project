@@ -14,6 +14,7 @@ struct MovieDetails: Decodable {
     let poster: String
     let rating: String
     let year: String
+    let id: String
     
     private enum CodingKeys: String, CodingKey {
         case title = "Title"
@@ -21,5 +22,6 @@ struct MovieDetails: Decodable {
         case rating = "imdbRating"
         case poster = "Poster"
         case year = "Year"
+        case id = "imdbID"
     }
 }

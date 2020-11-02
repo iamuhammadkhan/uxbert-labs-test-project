@@ -18,9 +18,6 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OML-9Q-mDL">
                         <rect key="frame" x="0.0" y="0.0" width="406" height="200"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="200" id="r9C-K3-hIg"/>
-                        </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UO4-jX-3Vd">
                         <rect key="frame" x="0.0" y="150" width="406" height="50"/>

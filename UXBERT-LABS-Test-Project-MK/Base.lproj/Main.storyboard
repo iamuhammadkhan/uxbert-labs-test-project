@@ -7,6 +7,36 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Favourite Movies View Controller-->
+        <scene sceneID="Fk1-fi-1FX">
+            <objects>
+                <viewController storyboardIdentifier="FavouriteMoviesViewController" id="4k3-2b-UxT" customClass="FavouriteMoviesViewController" customModule="UXBERT_LABS_Test_Project_MK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="grE-qC-MIX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gCe-Vq-nPc">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gCe-Vq-nPc" firstAttribute="trailing" secondItem="rZT-TV-ImF" secondAttribute="trailing" id="7Xc-9K-oPU"/>
+                            <constraint firstItem="gCe-Vq-nPc" firstAttribute="top" secondItem="rZT-TV-ImF" secondAttribute="top" id="brJ-Pj-dnG"/>
+                            <constraint firstAttribute="bottom" secondItem="gCe-Vq-nPc" secondAttribute="bottom" id="qtC-iT-1sl"/>
+                            <constraint firstItem="gCe-Vq-nPc" firstAttribute="leading" secondItem="rZT-TV-ImF" secondAttribute="leading" id="tuQ-u3-244"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rZT-TV-ImF"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="gCe-Vq-nPc" id="Bn5-m2-SnZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S6m-qr-RJg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="937.68115942028987" y="-562.5"/>
+        </scene>
         <!--Movie List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -30,14 +60,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Movie List" id="lZA-hm-gi7">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="heart" catalog="system" id="frM-k0-UiQ">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="heart" catalog="system" id="frM-k0-UiQ">
                             <connections>
                                 <action selector="favouriteButtonTapped:" destination="BYZ-38-t0r" id="lUq-38-XhA"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="tQr-Lf-3xj">
-                            <connections>
-                                <action selector="searchButtonTapped:" destination="BYZ-38-t0r" id="ePT-WG-xhl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -57,32 +82,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kl5-ru-3zn">
-                                <rect key="frame" x="20" y="73" width="374" height="24.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kl5-ru-3zn">
+                                <rect key="frame" x="20" y="73" width="374" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J5j-3k-Xk1">
-                                <rect key="frame" x="0.0" y="117.5" width="414" height="605"/>
+                                <rect key="frame" x="0.0" y="93" width="414" height="685"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="hPG-53-yz2">
-                                <rect key="frame" x="20" y="742.5" width="374" height="87.5"/>
+                                <rect key="frame" x="20" y="798" width="374" height="32"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4W8-U0-Qt2">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="18.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4W8-U0-Qt2">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVC-SX-FXf">
-                                        <rect key="frame" x="0.0" y="34.5" width="374" height="18.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVC-SX-FXf">
+                                        <rect key="frame" x="0.0" y="16" width="374" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cua-HM-rHP">
-                                        <rect key="frame" x="0.0" y="69" width="374" height="18.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cua-HM-rHP">
+                                        <rect key="frame" x="0.0" y="32" width="374" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -138,6 +163,5 @@
     </scenes>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
     </resources>
 </document>

@@ -17,7 +17,7 @@ final class TableViewDataSource<CellType, ViewModel>: NSObject, UITableViewDataS
         self.items = items
     }
     
-    func updateItems(items: [ViewModel], page: Int) {
+    func updateItems(items: [ViewModel], page: Int = 1) {
         if page > 1 {
             self.items += items
         } else {

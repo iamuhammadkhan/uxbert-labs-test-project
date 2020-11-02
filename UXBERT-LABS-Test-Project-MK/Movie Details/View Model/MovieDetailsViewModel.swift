@@ -9,9 +9,26 @@
 import Foundation
 
 protocol MovieDetailsViewModelDelegate: class {
-    func movieDetailsFetched()
+    func movieDetailsFetched(movieDetails: MovieDetails)
 }
 
 final class MovieDetailsViewModel {
+    private weak var delegate: MovieDetailsViewModelDelegate?
     
+    init(delegate: MovieDetailsViewModelDelegate) {
+        self.delegate = delegate
+    }
+    
+    func getMovieDetailsData(movieId: String) {
+        guard let url = URL(string: "\(BaseURL.getMovieDetailsUrl(id: movieId))") else { return }
+        let resource = Resource<MovieDetails>(url: url) { (data) in
+            let parssedMovie = try? JSONDecoder().decode(MovieDetails.self, from: data)
+            return parssedMovie
+        }
+        WebService.loadData(resource: resource) { [weak self] (data) in
+            if let movie = data {
+                self?.delegate?.movieDetailsFetched(movieDetails: movie)
+            }
+        }
+    }
 }

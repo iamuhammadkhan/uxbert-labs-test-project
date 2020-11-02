@@ -14,7 +14,7 @@ protocol MoviesViewModelDelegate: class {
 
 final class MoviesViewModel {
     private lazy var movieList: MovieList? = nil
-    weak var delegate: MoviesViewModelDelegate?
+    private weak var delegate: MoviesViewModelDelegate?
     lazy var page = 1
     
     init(delegate: MoviesViewModelDelegate) {

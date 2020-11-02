@@ -8,6 +8,5 @@ target 'UXBERT-LABS-Test-Project-MK' do
   # Pods for UXBERT-LABS-Test-Project-MK
 
   pod 'SDWebImage'
-  pod 'JGProgressHUD'
 
 end

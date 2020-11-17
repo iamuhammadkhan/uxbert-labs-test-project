@@ -23,7 +23,7 @@ final class FavouriteMoviesViewModel {
     func getMovieDetailsData(iDs: [String]) {
         for id in iDs {
             guard let url = URL(string: "\(BaseURL.getMovieDetailsUrl(id: id))") else { return }
-            let resource = Resource<MovieDetails>(url: url) { (data) in
+            let resource = Resource<MovieDetails>(url: url, httpMethod: .get) { (data) in
                 let parssedMovie = try? JSONDecoder().decode(MovieDetails.self, from: data)
                 return parssedMovie
             }

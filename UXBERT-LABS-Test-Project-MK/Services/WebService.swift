@@ -8,14 +8,25 @@
 
 import Foundation
 
-struct Resource<T> {
+enum HttpMethod: String {
+    case post = "POST"
+    case get = "GET"
+}
+
+struct Resource<T: Codable> {
     let url: URL
+    var httpMethod: HttpMethod
     let parse: (Data) -> T?
+    var body: Data? = nil
 }
 
 final class WebService {
     class func loadData<T>(resource: Resource<T>, completion: @escaping (T?) -> Void) {
-        URLSession.shared.dataTask(with: resource.url) { (data, response, error) in
+        var request = URLRequest(url: resource.url)
+        request.httpMethod = resource.httpMethod.rawValue
+        request.httpBody = resource.body
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let data = data {
                 DispatchQueue.main.async {
                     completion(resource.parse(data))

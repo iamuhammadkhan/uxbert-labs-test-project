@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MovieDetails: Decodable {
+struct MovieDetails: Codable {
     let title: String
     let released: String
     let poster: String

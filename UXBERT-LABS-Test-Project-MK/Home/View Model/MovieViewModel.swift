@@ -23,7 +23,7 @@ final class MoviesViewModel {
     
     func getMoviesData(searchTerm: String, page: Int) {
         guard let url = URL(string: BaseURL.getSearchMovieUrl(searchTerm: searchTerm, page: "\(page)")) else { return }
-        let resource = Resource<MovieList>(url: url) { (data) in
+        let resource = Resource<MovieList>(url: url, httpMethod: .get) { (data) in
             let parssedMovies = try? JSONDecoder().decode(MovieList.self, from: data)
             return parssedMovies
         }

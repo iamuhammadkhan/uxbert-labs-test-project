@@ -21,7 +21,7 @@ final class MovieDetailsViewModel {
     
     func getMovieDetailsData(movieId: String) {
         guard let url = URL(string: "\(BaseURL.getMovieDetailsUrl(id: movieId))") else { return }
-        let resource = Resource<MovieDetails>(url: url) { (data) in
+        let resource = Resource<MovieDetails>(url: url, httpMethod: .get) { (data) in
             let parssedMovie = try? JSONDecoder().decode(MovieDetails.self, from: data)
             return parssedMovie
         }

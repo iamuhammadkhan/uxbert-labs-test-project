@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MovieList: Decodable {
+struct MovieList: Codable {
     let movies: [Movie]
     
     private enum CodingKeys: String, CodingKey {
@@ -16,7 +16,7 @@ struct MovieList: Decodable {
     }
 }
 
-struct Movie: Decodable {
+struct Movie: Codable {
     let title: String
     let year: String
     let type: String
